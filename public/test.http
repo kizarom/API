@@ -1,0 +1,27 @@
+#-----------------afficher tous les taches---------------------
+
+#GET http://127.0.0.1:8000/api/todos/
+
+
+#-----------------afficher une tache---------------------
+
+ #GET http://127.0.0.1:8000/api/todos/4
+
+#-----------------ajouter une tache---------------------
+
+# POST http://127.0.0.1:8000/api/todos
+
+# {
+#     "title": "ajouter admin9"
+# }
+
+#-----------------modifier tache---------------------
+
+# PUT http://127.0.0.1:8000/api/todos/9
+
+# {
+#     "title": "ajouter admin 2"
+# }
+
+#-----------------supprimer tache---------------------
+# DELETE http://127.0.0.1:8000/api/todos/9
