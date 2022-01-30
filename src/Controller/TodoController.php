@@ -51,7 +51,7 @@ class TodoController extends AbstractFOSRestController
      * @return JsonResponse
      */
     public function getTodos(): JsonResponse
-    {
+    {   
         // On récupère la liste des taches
         $todos = $this->_todoRepository->findAll();
         // On convertit en json
@@ -73,7 +73,7 @@ class TodoController extends AbstractFOSRestController
         // On récupère la taches
         $todo = $this->_todoRepository->find($id);
         if (!$todo) {
-            return new JsonResponse(["Cette todo n'existe pas !"], Response::HTTP_NOT_FOUND, []);
+            return new JsonResponse(["Cette todo n existe pas !"], Response::HTTP_NOT_FOUND, []);
         }
         // On convertit en json
         $response = $this->_serializer->serialize($todo, 'json');
@@ -98,7 +98,7 @@ class TodoController extends AbstractFOSRestController
         ]);
 
         if (!is_null($todo)) {
-            return new JsonResponse('Ce todo existe déjà', Response::HTTP_CONFLICT);
+            return new JsonResponse('Ce todo existe deja', Response::HTTP_CONFLICT);
         }
         // On instancie une nouvel tache
         $todo = new Todo();
@@ -123,7 +123,7 @@ class TodoController extends AbstractFOSRestController
     {
         $todo = $this->_todoRepository->find($id);
         if (!$todo) {
-            return new JsonResponse(["Cette todo n'existe pas !"], 404, []);
+            return new JsonResponse(["Cette todo n existe pas !"], 404, []);
         }
         // On décode les données envoyées
         $data = json_decode($request->getContent(), true);
@@ -149,7 +149,7 @@ class TodoController extends AbstractFOSRestController
     {
         $todo = $this->_todoRepository->find($id);
         if (!$todo) {
-            return new JsonResponse(["Cette todo n'existe pas !"], Response::HTTP_NOT_FOUND, []);
+            return new JsonResponse(["Cette todo n existe pas !"], Response::HTTP_NOT_FOUND, []);
         }
         //suppression de données
         $this->_entityManager->remove($todo);
